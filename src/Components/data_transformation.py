@@ -24,7 +24,6 @@ class DataTrasformationConfig:
     train_data_path=os.path.join('artifacts','traindata.csv')
     test_data_path=os.path.join('artifacts','testdata.csv')
     preprocessor_obj_filepath=os.path.join('artifacts','Preprocessor.pkl')
-
 class DataTransformation:
     def __init__(self):
         self.datatransformationconfig=DataTrasformationConfig()
@@ -86,10 +85,12 @@ class DataTransformation:
         imp_features = SelectKBest(mutual_info_classif, k=10)
         imp_features.fit(X_train, y_train)
         features = X_train.columns[imp_features.get_support()]
+        print(f"Features after the feature selection are{features}")
         imp_features_df=pd.DataFrame(df,columns=features)
         imp_features_df['credit_risk']=df['credit_risk']
 
         train_data,test_data = self.handle_imbalanced_data(imp_features_df)
+
 
         return(
             train_data,

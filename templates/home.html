@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Premium Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            }
+            .bg {
+  /* The image used */
+  background-image: url("https://cms-img.coverfox.com/health-insurance-concept.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+        }
+        .user_card {
+            width: auto;
+            height: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            background: rgba(0,0,0);
+            background: rgba(0,0,0,0.5);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 5px;
+            color:white;
+
+        }
+
+        .form_container {
+            margin-top: 20px;
+        }
+
+        #form-title{
+            color: #fff;
+            
+        }
+
+        .login_btn {
+            width: 100%;
+            background: green!important;
+            color: white !important;
+        }
+        .login_btn:focus {
+            box-shadow: none !important;
+            outline: 0px !important;
+        }
+        .login_container {
+            padding: 0 2rem;
+        }
+        .input-group-text {
+            /*background: #f7ba5b !important;*/
+            color: black !important;
+            border: 0 !important;
+            border-radius: 0.25rem 0 0 0.25rem !important;
+        }
+        .input_user,
+        .input_pass:focus {
+            box-shadow: none !important;
+            outline: 0px !important;
+        }
+
+        #messages{
+            background-color: grey;
+            color: #fff;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+    <div class="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center">
+
+
+                    <h3 id="form-title">Credit Risk Prediction</h3>
+                <i class="fa fa-sign-in" style="font: 38px;color: red;"></i>
+                </div>
+                <div class="d-flex justify-content-center form_container">
+                    <form method="POST" action="{{ url_for('predit_data')}}">
+                         <div class="mb-1">
+                            <label class="form-label">Status</label>
+                            <input class="form-control" type="number" name="status"
+                             placeholder="Enter Status" min='0' max='100' />
+                        </div>
+                        <div class="mb-1">
+                            <label class="form-label">Duration</label>
+                            <input class="form-control" type="number" name="duration"
+                                placeholder="Enter Duration" min='0' max='100' />
+                        </div>   
+                        <div class="mb-1">
+                            <label class="form-label">Children</label>
+                            <input class="form-control" type="number" name="children"
+                                placeholder="Enter number of children" min='0' max='100' />
+                        </div>      
+                        <div class="mb-1">
+                            <label class="form-label">Gender</label>
+                            <select class="form-control" name="sex" placeholder="Enter you Gender" required>
+                                <option class="placeholder" selected disabled value="">Select your Gender</option>
+                                <option value="male">
+                                    Male
+                                </option>
+                                <option value="female">
+                                    Female
+                                </option>
+                            </select>
+                        </div>     
+                        <div class="mb-1">
+                            <label class="form-label">region</label>
+                            <select class="form-control" name="region" placeholder="Enter you region" required>
+                                <option class="placeholder" selected disabled value="">Select Region</option>
+                                <option value="southeast">
+                                    SOUTH EAST
+                                </option>
+                                <option value="southwest">
+                                    SOUTH WEST
+                                </option>
+                                <option value="northeast">
+                                    NORTH EAST
+                                </option>
+                                <option value="northwest">
+                                    NORTH WEST
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="mb-1">
+                            <label class="form-label">Smoker</label>
+                            <select class="form-control" name="smoker"
+                                placeholder="Enter you Parent Education" required>
+                                <option class="placeholder" selected disabled value="">Smoking</option>
+                                <option value="yes">
+                                    YES
+                                </option>
+                                <option value="no">
+                                    NO
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-1">
+                            <input class="btn btn-primary" type="submit" value="Predict" required />
+                        </div>
+                        <h3>
+                            Predicted Health Expenses {{result}}
+                        </h3>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+   <body>
+</html>
