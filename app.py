@@ -4,12 +4,12 @@ from src.exception import CustomeException
 from src.logger import logging
 from src.Pipeline.predict_pipeline import PredictPipeline,CustomData
 
-application =Flask(__name__,static_folder='/static')
+application =Flask(__name__)
 app=application
 
 @app.route('/')
 def index():
-    return render_template('templates/index.html')
+    return render_template('index.html')
 
 @app.route('/predict',methods=["GET","POST"])
 def predit_data():
@@ -36,7 +36,7 @@ def predit_data():
 
         if result==0:
             prediction= 'Bad'
-        else:
+        elif result==1:
             prediction ='Good'
 
         return render_template('home.html',result=f"The Credit risk for the entered data is {prediction}")

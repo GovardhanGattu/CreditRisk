@@ -15,6 +15,7 @@ class PredictPipeline():
 
     def predict_pipeline(self,inputdata):
         try:
+            print(inputdata)
             model_path=os.path.join('artifacts','model.pkl')
             model=loadobject(filepath=model_path)
             preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
@@ -59,7 +60,7 @@ class CustomData():
     def prepare_data_frame(self):
         try:
             custom_data={
-                'stauts':[self.status],
+                'status':[self.status],
                 'duration':[self.duration],
                 'credit_history':[self.credit_history],
                 'purpose':[self.purpose],

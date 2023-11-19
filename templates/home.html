@@ -17,7 +17,7 @@
             }
             .bg {
   /* The image used */
-  background-image: url("https://cms-img.coverfox.com/health-insurance-concept.jpg");
+  background-image: url("https://freepngimg.com/thumb/online_banking/165682-banking-finance-free-hd-image.png");
 
   /* Full height */
   height: 100%;
@@ -101,70 +101,184 @@
                 </div>
                 <div class="d-flex justify-content-center form_container">
                     <form method="POST" action="{{ url_for('predit_data')}}">
-                         <div class="mb-1">
-                            <label class="form-label">Status</label>
-                            <input class="form-control" type="number" name="status"
-                             placeholder="Enter Status" min='0' max='100' />
-                        </div>
                         <div class="mb-1">
                             <label class="form-label">Duration</label>
                             <input class="form-control" type="number" name="duration"
-                                placeholder="Enter Duration" min='0' max='100' />
+                                placeholder="Enter Duration" min='0' max='10000' />
                         </div>   
                         <div class="mb-1">
-                            <label class="form-label">Children</label>
-                            <input class="form-control" type="number" name="children"
-                                placeholder="Enter number of children" min='0' max='100' />
+                            <label class="form-label">Amount</label>
+                            <input class="form-control" type="number" name="amount"
+                                placeholder="Enter the amount" min='0' max='10000000' />
                         </div>      
                         <div class="mb-1">
-                            <label class="form-label">Gender</label>
-                            <select class="form-control" name="sex" placeholder="Enter you Gender" required>
-                                <option class="placeholder" selected disabled value="">Select your Gender</option>
-                                <option value="male">
-                                    Male
+                            <label class="form-label">Age</label>
+                            <input class="form-control" type="number" name="age"
+                                placeholder="Enter the Age  " min='0' max='100' />
+                        </div> 
+                        <div class="mb-1">
+                            <label class="form-label">Status</label>
+                            <select class="form-control" name="status" placeholder="Enter the status" required>
+                                <option class="placeholder" selected disabled value="">Select Status</option>
+                                <option value="1">
+                                    no checking account 
                                 </option>
-                                <option value="female">
-                                    Female
+                                <option value="2">
+                                    ... < 0 DM
+                                </option>
+                                <option value="3">
+                                    0<= ... < 200 DM 
+                                </option>
+                                <option value="4">
+                                    >= 200 DM / salary for at least 1 year
                                 </option>
                             </select>
                         </div>     
                         <div class="mb-1">
-                            <label class="form-label">region</label>
-                            <select class="form-control" name="region" placeholder="Enter you region" required>
-                                <option class="placeholder" selected disabled value="">Select Region</option>
-                                <option value="southeast">
-                                    SOUTH EAST
+                            <label class="form-label">credit_history</label>
+                            <select class="form-control" name="credit_history" placeholder="Enter credit_history" required>
+                                <option class="placeholder" selected disabled value="">Select credit_history</option>
+                                <option value="0">
+                                    delay in paying off in the past
                                 </option>
-                                <option value="southwest">
-                                    SOUTH WEST
+                                <option value="1">
+                                    critical account/other credits elsewhere  
                                 </option>
-                                <option value="northeast">
-                                    NORTH EAST
+                                <option value="2">
+                                    no credits taken/all credits paid back duly
                                 </option>
-                                <option value="northwest">
-                                    NORTH WEST
+                                <option value="3">
+                                    existing credits paid back duly till now
+                                </option>
+                                <option value="4">
+                                    all credits at this bank paid back duly
                                 </option>
                             </select>
                         </div>
 
                         <div class="mb-1">
-                            <label class="form-label">Smoker</label>
-                            <select class="form-control" name="smoker"
-                                placeholder="Enter you Parent Education" required>
-                                <option class="placeholder" selected disabled value="">Smoking</option>
-                                <option value="yes">
-                                    YES
+                            <label class="form-label">purpose</label>
+                            <select class="form-control" name="purpose"
+                                placeholder="Enter purpose" required>
+                                <option class="placeholder" selected disabled value="">purpose</option>
+                                <option value="0">
+                                    others
                                 </option>
-                                <option value="no">
-                                    NO
+                                <option value="1">
+                                    car (new)
+                                </option>
+                                <option value="2">
+                                    car (used)
+                                </option>
+                                <option value="3">
+                                    furniture/equipment
+                                </option>
+                                <option value="4">
+                                    radio/television
+                                </option>
+                                <option value="5">
+                                    domestic appliances
+                                </option>
+                                <option value="6">
+                                    repairs
+                                </option>
+                                <option value="7">
+                                    education
+                                </option>
+                                <option value="8">
+                                    vacation
+                                </option>
+                                <option value="9">
+                                    retraining
+                                </option>
+                                <option value="10">
+                                    business
                                 </option>
                             </select>
                         </div>
                         <div class="mb-1">
+                            <label class="form-label">savings</label>
+                            <select class="form-control" name="savings" placeholder="Enter savings" required>
+                                <option class="placeholder" selected disabled value="">Select savings</option>
+                                <option value="1">
+                                    unknown/no savings account 
+                                </option>
+                                <option value="2">
+                                    ... <  100 DM
+                                </option>
+                                <option value="3">
+                                    100 <= ... <  500 DM  
+                                </option>
+                                <option value="4">
+                                    500 <= ... < 1000 DM
+                                </option>
+                                <option value="5">
+                                    ... >= 1000 DM
+                                </option>
+                            </select>
+                        </div> 
+
+                        <div class="mb-1">
+                            <label class="form-label">employment_duration</label>
+                            <select class="form-control" name="employment_duration" placeholder="Enter employment_duration" required>
+                                <option class="placeholder" selected disabled value="">Select employment_duration</option>
+                                <option value="1">
+                                    unemployed 
+                                </option>
+                                <option value="2">
+                                    < 1 yr
+                                </option>
+                                <option value="3">
+                                    1 <= ... < 4 yrs  
+                                </option>
+                                <option value="4">
+                                    4 <= ... < 7 yrs
+                                </option>
+                                <option value="5">
+                                    >= 7 yrs
+                                </option>
+                            </select>
+                        </div> 
+
+                        <div class="mb-1">
+                            <label class="form-label">property</label>
+                            <select class="form-control" name="property" placeholder="Enter property" required>
+                                <option class="placeholder" selected disabled value="">Select property</option>
+                                <option value="1">
+                                    unknown / no property 
+                                </option>
+                                <option value="2">
+                                    car or other
+                                </option>
+                                <option value="3">
+                                    building soc. savings agr./life insurance  
+                                </option>
+                                <option value="4">
+                                    real estate
+                                </option>
+                            </select>
+                        </div> 
+                        <div class="mb-1">
+                            <label class="form-label">other_installment_plans</label>
+                            <select class="form-control" name="other_installment_plans" placeholder="Enter other_installment_plans" required>
+                                <option class="placeholder" selected disabled value="">Select other_installment_plans</option>
+                                <option value="1">
+                                    bank   
+                                </option>
+                                <option value="2">
+                                    stores
+                                </option>
+                                <option value="3">
+                                    none   
+                                </option>
+        
+                            </select>
+                        </div> 
+                        <div class="mb-1">
                             <input class="btn btn-primary" type="submit" value="Predict" required />
                         </div>
                         <h3>
-                            Predicted Health Expenses {{result}}
+                            {{result}}
                         </h3>
                     </form>
                 </div>
