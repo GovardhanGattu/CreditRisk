@@ -7,6 +7,7 @@ class CustomeException(Exception):
         super().__init__(errormessage)
         self.errormessage=errormessage_details(errormessage,errordetail=errordetail)
       def __str__(self):
+        print(self.errormessage)
         return self.errormessage
 
 
