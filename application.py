@@ -3,15 +3,19 @@ import pandas as pd
 from src.exception import CustomeException
 from src.logger import logging
 from src.Pipeline.predict_pipeline import PredictPipeline,CustomData
+from flask_cors import CORS,cross_origin
+
 
 application =Flask(__name__)
 app=application
 
 @app.route('/')
+@cross_origin()
 def index():
     return render_template('index.html')
 
 @app.route('/predict',methods=["GET","POST"])
+@cross_origin()
 def predit_data():
     if request.method=='GET':
         return render_template('home.html')
@@ -42,5 +46,5 @@ def predit_data():
         return render_template('home.html',result=f"The Credit risk for the entered data is {prediction}")
     
 
-if __name__=="__main__":
-    app.run(host="0.0.0.0")      
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8000)
