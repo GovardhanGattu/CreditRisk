@@ -18,7 +18,7 @@ class PredictPipeline():
             print(inputdata)
             model_path=os.path.join('artifacts','model.pkl')
             model=loadobject(filepath=model_path)
-            preprocessor_path=os.path.join('artifacts','preprocessor.pkl')
+            preprocessor_path=os.path.join('artifacts','Preprocessor.pkl')
             preprocessor=loadobject(filepath=preprocessor_path)
             scaled_data=preprocessor.transform(inputdata)
             model_prediction=model.predict(scaled_data)
